@@ -23,7 +23,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
  This line creates a new reducer that has built-in state persistence functionality.
  */
 
-const middleWares = [process.env.NODE_ENV !== 'production' && logger, sagaMiddleware ].filter(
+const middleWares = [process.env.NODE_ENV === 'production' && logger, sagaMiddleware ].filter(
   Boolean
 );
 //production or development

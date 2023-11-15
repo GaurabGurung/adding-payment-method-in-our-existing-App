@@ -20,14 +20,14 @@ import {
     getDocs, // use to fetch multiple documents
   } from 'firebase/firestore';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBz1Q0skavpAbDCo0G9EJNLwUvFLBiPfr8",
-    authDomain: "online-shopping-testing.firebaseapp.com",
-    projectId: "online-shopping-testing",
-    storageBucket: "online-shopping-testing.appspot.com",
-    messagingSenderId: "797436626799",
-    appId: "1:797436626799:web:bd0909f0bca13ef7a74a9a"
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyDWB5MzcdUMMZekxXR1jxXPJ5cwFX3tD6c",
+    authDomain: "redux-saga-62b79.firebaseapp.com",
+    projectId: "redux-saga-62b79",
+    storageBucket: "redux-saga-62b79.appspot.com",
+    messagingSenderId: "422520043521",
+    appId: "1:422520043521:web:636bdfb394ba8c15c5e800"
+  };
     
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
@@ -92,10 +92,8 @@ export const createUserDocumentFromAuth = async (
             console.log('error creating the user', error.message);
         }
     } else {
-        return userDocRef;
+        return userSnapShot;
     }
-
-
 } 
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
