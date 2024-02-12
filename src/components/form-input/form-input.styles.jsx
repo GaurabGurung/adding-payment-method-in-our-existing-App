@@ -1,21 +1,21 @@
-import { styled, css } from "styled-components"; 
+import { styled, css } from "styled-components";
 export const Group = styled.div`
-    position: relative; 
-    margin: 45px 0; 
-    input[type='password'] {
-        letter-spacing: 0.3em; 
-    }   
-`
+  position: relative;
+  margin: 45px 0;
+  input[type="password"] {
+    letter-spacing: 0.3em;
+  }
+`;
 
-const subColor = 'grey';
-const mainColor = 'black';
+const subColor = "grey";
+const mainColor = "black";
 
 const shrinkLabelStyles = css` \\CSS block is used to create a css block and use it conditionally to other styled components
     position: absolute;
     top: -14px; 
     font-size: 12px; 
     color: ${mainColor}; 
-`
+`;
 export const FormInputLabel = styled.label`
     color: ${subColor}; 
     font-size: 16px; 
@@ -26,10 +26,12 @@ export const FormInputLabel = styled.label`
     top: 10px; 
     transition: 300ms ease all; 
 
-    ${({shrink}) => shrink && shrinkLabelStyles}; \\passed shrink props from the main component
-`
+    ${({ shrink }) =>
+      shrink &&
+      shrinkLabelStyles}; \\passed shrink props from the main component
+`;
 
-export const InputWithStyle= styled.input`
+export const InputWithStyle = styled.input`
     background: none; 
         background-color: white; 
         color: ${subColor}; 
@@ -54,5 +56,4 @@ export const InputWithStyle= styled.input`
          However, the next or sequent sibling should be above the current one
         */       
     }
-`
-
+`;
