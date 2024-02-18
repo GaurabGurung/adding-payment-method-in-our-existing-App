@@ -1,0 +1,37 @@
+.footer {
+  background: #2f2f2f;
+  background: rgb(28, 27, 27);
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+  margin-top: auto;
+  padding: 0;
+  margin-top: 100px;
+  padding: 50px 0;
+  p {
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.735);
+  }
+
+  .footer__quick-links ul li {
+    background: var(--primary-color);
+    color: rgba(255, 255, 255, 0.735);
+    display: flex;
+    gap: 1rem;
+  }
+  .footer__title {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .footer__copyright {
+    font-size: 1rem;
+    margin-top: 40px;
+  }
+  .footer__quick-links {
+    margin-bottom: 2rem;
+  }
+}

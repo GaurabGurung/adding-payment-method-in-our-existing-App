@@ -1,12 +1,15 @@
 body {
   margin: 0;
-  padding: 25px 25px;
-  font-family: 'IBM Plex Sans Condensed';
+
+  font-family: "IBM Plex Sans Condensed";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --gold-text: #d4ad00;
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

@@ -1,4 +1,3 @@
-
 import { styled } from "styled-components";
 
 export const BackgroundImage = styled.div`
@@ -6,32 +5,33 @@ export const BackgroundImage = styled.div`
     height: 100%; 
     background-size: cover; 
     background-position: center; 
-    background-image: ${({imageurl}) => `url(${imageurl})`}; \\passing it as a prop and using it for our background image
-`
+    background-image: ${({ imageurl }) =>
+      `url(${imageurl})`}; \\passing it as a prop and using it for our background image
+`;
 export const Body = styled.div`
-    height: 90px; 
-    padding: 0 25px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    border: 1px solid black; 
-    background-color: white; 
-    opacity: 0.7; 
-    position: absolute; 
-    h2 { 
-        font-weight: bold; 
-        margin: 0 6px 0; 
-        font-size: 22px; 
-        color: #4a4a4a; 
-        text-transform: uppercase
-    } 
+  height: 90px;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: white;
+  opacity: 0.7;
+  position: absolute;
+  h2 {
+    font-weight: bold;
+    margin: 0 6px 0;
+    font-size: 22px;
+    color: #4a4a4a;
+    text-transform: uppercase;
+  }
 
-    p { 
-        font-weight: lighter; 
-        font-size: 16px;
-    } 
-`
+  p {
+    font-weight: lighter;
+    font-size: 16px;
+  }
+`;
 
 export const DirectoryItemContainer = styled.div`
     min-width: 30%; 
@@ -43,6 +43,7 @@ export const DirectoryItemContainer = styled.div`
     border: 1px solid black; 
     margin: 0 7.5px 15px; 
     overflow: hidden; 
+    border: none;
 
     &:hover { 
         cursor: pointer; 
@@ -61,6 +62,4 @@ export const DirectoryItemContainer = styled.div`
         &:first-child { 
             margin-right: 7.5px; 
         } 
-`
-
-
+`;
