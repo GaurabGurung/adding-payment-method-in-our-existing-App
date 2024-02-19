@@ -4,6 +4,7 @@ import { ReactComponent as CrwnLogo } from "../../assests/crown.svg";
 import { ReactComponent as MenuBar } from "../../assests/menu-line.svg";
 
 export const NavigationContainer = styled.div`
+  postion: relative;
   width: 100%;
   display: flex;
   margin-bottom: 55px;
@@ -133,6 +134,9 @@ export const MenuBarLine = styled(MenuBar)`
   height: 50px;
   margin-right: 20px;
   display: none;
+  &:hover {
+    cursor: pointer;
+  }
   @media screen and (max-width: 900px) {
     display: block;
     width: 30px;
@@ -151,11 +155,42 @@ export const MenuBarContainer = styled.div`
 `;
 
 export const SideMenu = styled.div`
-  position: absolute;
-  width: 500px;
-  height: 200vh;
-  background: pink;
-  top: -500px;
-  right: -50px;
+  position: fixed;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  top: 0;
+  right: -280px;
+  right: 0;
   z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+  gap: 20px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    color: pink;
+
+    li {
+      padding: 10px 0;
+      margin-top: 30px;
+    }
+  }
+`;
+export const MobileMenuContainer = styled.div``;
+
+export const Overlay = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 192, 203, 0.5);
+  background: rgba(255, 255, 255, 0.7);
+
+  z-index: 10;
+  top: 0;
+  left: 0;
+  transition: 5s;
 `;

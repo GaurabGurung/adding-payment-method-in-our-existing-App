@@ -14,8 +14,10 @@ import {
   LetterE,
   MenuBarContainer,
   SideMenu,
+  MobileMenuContainer,
+  Overlay,
 } from "./navigation.styles";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
@@ -24,11 +26,16 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { signOutStart } from "../../store/user/user.action";
 
 const Navigation = () => {
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
   const signOutUser = () => dispatch(signOutStart());
+
+  const handleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
+
   /**
   useSelector is a hook that you pass a selector function,
   a selector function is something that essentially extracts off that
@@ -62,8 +69,36 @@ const Navigation = () => {
           </AuthContainer>
           <CartIcon />
           <MenuBarContainer>
-            <MenuBarLine />
-            <SideMenu />
+            {isSideMenuOpen ? <Overlay onClick={handleSideMenu} /> : ""}
+
+            <MenuBarLine onClick={handleSideMenu} />
+            <MobileMenuContainer>
+              <SideMenu>
+                <Logo />
+                <TitleStyle>
+                  <LetterF>F</LetterF>
+                  ashion <LetterE>E</LetterE>
+                  legance
+                </TitleStyle>
+                <ul>
+                  <li>
+                    <NavLink to="/">HOME</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/shop">SHOP</NavLink>
+                  </li>
+                  <li>
+                    {currentUser ? (
+                      <NavLink as="span" onClick={signOutUser}>
+                        SIGN OUT
+                      </NavLink>
+                    ) : (
+                      <NavLink to="/auth">SIGN IN</NavLink>
+                    )}
+                  </li>
+                </ul>
+              </SideMenu>
+            </MobileMenuContainer>
           </MenuBarContainer>
 
           {isCartOpen && <CartDropdown />}
