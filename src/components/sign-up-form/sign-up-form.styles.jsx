@@ -10,6 +10,7 @@ export const SignUpContainer = styled.div`
   justify-content: center;
   max-width: 600px;
   margin-top: 80px;
+  padding: 0 20px;
 `;
 
 export const RegisterButton = styled(Button)`

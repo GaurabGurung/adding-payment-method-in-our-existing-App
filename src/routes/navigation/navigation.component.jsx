@@ -1,4 +1,3 @@
-import { ReactComponent as CrwnLogo } from "../../assests/crown.svg";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { Link, Outlet } from "react-router-dom";
@@ -10,6 +9,11 @@ import {
   Logo,
   TitleStyle,
   AuthContainer,
+  MenuBarLine,
+  LetterF,
+  LetterE,
+  MenuBarContainer,
+  SideMenu,
 } from "./navigation.styles";
 import { Fragment } from "react";
 
@@ -38,18 +42,9 @@ const Navigation = () => {
             <Logo style={{ fill: "#fff" }} />
           </Link>
           <TitleStyle>
-            <span
-              style={{
-                fontSize: "5.5rem",
-                fontWeight: "600",
-                color: "#d4af37",
-              }}
-            >
-              F
-            </span>
-            ashion{" "}
-            <span style={{ fontSize: "4rem", fontWeight: "400" }}>E</span>
-            <span>legance</span>
+            <LetterF>F</LetterF>
+            ashion <LetterE>E</LetterE>
+            legance
           </TitleStyle>
         </LogoContainer>
 
@@ -66,8 +61,13 @@ const Navigation = () => {
             )}
           </AuthContainer>
           <CartIcon />
+          <MenuBarContainer>
+            <MenuBarLine />
+            <SideMenu />
+          </MenuBarContainer>
+
+          {isCartOpen && <CartDropdown />}
         </NavLinks>
-        {isCartOpen && <CartDropdown />}
       </NavigationContainer>
       <Outlet />
     </Fragment>

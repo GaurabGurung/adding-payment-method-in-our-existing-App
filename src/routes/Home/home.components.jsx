@@ -6,10 +6,6 @@ import { Outlet } from "react-router-dom";
 import Slider from "../../components/slider/slider.component";
 
 const Home = () => {
-  // useEffect (()=> {
-  //   addCollectionAndDocuments('categories', SHOP_DATA)
-  // },[])
-
   return (
     <div>
       <Outlet />

@@ -16,6 +16,7 @@
   width: 30vw;
   scroll-snap-align: start;
   object-fit: cover;
+  min-width: 500px;
 }
 
 @keyframes slide {

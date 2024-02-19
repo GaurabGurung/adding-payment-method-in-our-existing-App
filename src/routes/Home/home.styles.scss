@@ -3,7 +3,7 @@
 
   .slider {
     position: relative;
-    z-index: 2; /* Set a higher z-index */
+    z-index: 2;
   }
 
   .slide__overlay {
@@ -31,12 +31,12 @@
       @media screen and (max-width: 1178px) {
         font-size: 1.6rem;
       }
-      @media screen and (max-width: 951px) {
-        font-size: 1rem;
-      }
-      @media screen and (max-width: 601px) {
-        font-size: 0.8rem;
-      }
+      // @media screen and (max-width: 951px) {
+      //   font-size: 1rem;
+      // }
+      // @media screen and (max-width: 601px) {
+      //   font-size: 0.8rem;
+      // }
     }
     h5 {
       color: teal;
@@ -46,12 +46,12 @@
       @media screen and (max-width: 1178px) {
         font-size: 1rem;
       }
-      @media screen and (max-width: 951px) {
-        font-size: 0.8rem;
-      }
-      @media screen and (max-width: 601px) {
-        font-size: 0.5rem;
-      }
+      // @media screen and (max-width: 951px) {
+      //   font-size: 0.8rem;
+      // }
+      // @media screen and (max-width: 601px) {
+      //   font-size: 0.5rem;
+      // }
     }
   }
 }
