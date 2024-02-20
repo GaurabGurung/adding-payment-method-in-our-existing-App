@@ -13,4 +13,5 @@ export const DirectoryHeader = styled.h1`
   text-align: center;
   font-size: 2rem;
   padding: 10px 0;
+  color: teal;
 `;

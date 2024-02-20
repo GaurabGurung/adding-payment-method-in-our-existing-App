@@ -1,6 +1,6 @@
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import {
   NavigationContainer,
   NavLink,
@@ -27,12 +27,39 @@ import { signOutStart } from "../../store/user/user.action";
 
 const Navigation = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const currentPath = location.pathname;
 
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
-  const signOutUser = () => dispatch(signOutStart());
+  const NavLinkWithStyle = ({ to, children }) => (
+    <NavLink
+      to={to}
+      onClick={handleSideMenu}
+      style={{
+        color: currentPath === to ? "rgba(240, 105, 180, 1)" : "",
+        fontWeight: currentPath === to ? "900" : "",
+      }}
+    >
+      {children}
+    </NavLink>
+  );
+
+  const SideMenuWithStyle = ({ children }) => (
+    <SideMenu
+      style={{
+        right: isSideMenuOpen === false ? "0" : "",
+      }}
+    ></SideMenu>
+  );
+
+  const signOutUser = () => {
+    dispatch(signOutStart());
+    setIsSideMenuOpen(!isSideMenuOpen);
+  };
 
   const handleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
 
@@ -73,7 +100,7 @@ const Navigation = () => {
 
             <MenuBarLine onClick={handleSideMenu} />
             <MobileMenuContainer>
-              <SideMenu>
+              <SideMenu isactive={isSideMenuOpen ? "isactive" : ""}>
                 <Logo />
                 <TitleStyle>
                   <LetterF>F</LetterF>
@@ -82,18 +109,19 @@ const Navigation = () => {
                 </TitleStyle>
                 <ul>
                   <li>
-                    <NavLink to="/">HOME</NavLink>
+                    <NavLinkWithStyle to="/">HOME</NavLinkWithStyle>
                   </li>
                   <li>
-                    <NavLink to="/shop">SHOP</NavLink>
+                    <NavLinkWithStyle to="/shop">SHOP</NavLinkWithStyle>
+                  </li>
+                  <li>
+                    <NavLinkWithStyle to="/checkout">CART</NavLinkWithStyle>
                   </li>
                   <li>
                     {currentUser ? (
-                      <NavLink as="span" onClick={signOutUser}>
-                        SIGN OUT
-                      </NavLink>
+                      <NavLinkWithStyle to="/">SIGN OUT</NavLinkWithStyle>
                     ) : (
-                      <NavLink to="/auth">SIGN IN</NavLink>
+                      <NavLinkWithStyle to="/auth">SIGN IN</NavLinkWithStyle>
                     )}
                   </li>
                 </ul>

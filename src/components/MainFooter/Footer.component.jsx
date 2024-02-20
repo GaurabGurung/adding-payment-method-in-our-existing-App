@@ -1,5 +1,8 @@
 import React from "react";
 import "./Footer.scss";
+import MailIcon from "../../assests/mail-line.png";
+import PhoneIcon from "../../assests/phone-line.png";
+import MapPinIcon from "../../assests/map-pin-line.png";
 
 import { Container, Col, Row, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -13,18 +16,21 @@ const Footer = () => {
         <Row>
           <Col lg="5">
             <div className="logo">
-              <h1 className="footer__title">Haven Mart</h1>
+              <h4>Fashion Elegance</h4>
             </div>
             <p className="mt-4 mb-4">
-              Discover a world of quality and style at Haven Mart. We curate the
-              finest selection of products to elevate your lifestyle. Our
-              commitment is to provide unparalleled comfort and sophistication.
-              Explore our collection for a home that reflects your unique taste.
+              Welcome to Fashion Elegance, where style meets sophistication. At
+              Fashion Elegance, we curate a collection of chic and timeless
+              clothing, designed to bring out the elegance in every individual.
+              Explore our diverse range of fashion essentials, from contemporary
+              trends to classic pieces that stand the test of time. Elevate your
+              wardrobe with Fashion Elegance – Your destination for refined
+              style and unparalleled elegance in every stitch.
             </p>
           </Col>
           <Col lg="2">
             <div className="footer__quick-links">
-              <h4 className="footer__title"> Top Categories</h4>
+              <h4 className="footer__title"> Categories</h4>
               <ListGroup>
                 <ListGroupItem className="ps-0 border-0">
                   <Link to={"/shop"}>Mens</Link>
@@ -38,17 +44,17 @@ const Footer = () => {
                 <ListGroupItem className="ps-0 border-0">
                   <Link to={"/shop"}>Sneakers</Link>
                 </ListGroupItem>
+                <ListGroupItem className="ps-0 border-0">
+                  <Link to={"/shop"}>Hats</Link>
+                </ListGroupItem>
               </ListGroup>
-              <ListGroupItem className="ps-0 border-0">
-                <Link to={"/shop"}>Hats</Link>
-              </ListGroupItem>
             </div>
           </Col>
           <Col lg="2">
             <div className="footer__quick-links">
               <h4 className="footer__title"> Useful Links</h4>
               <ListGroup>
-                <ListGroupItem className="ps-0 border-0">
+                <ListGroupItem className="ps-0 border-0 ">
                   <Link to="/shop">Shop</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
@@ -67,22 +73,16 @@ const Footer = () => {
             <div className="footer__quick-links">
               <h4 className="footer__title">Contact</h4>
               <ListGroup>
-                <ListGroupItem className="ps-0 border-0">
-                  <span>
-                    <i className="ri-map-pin-line"></i>
-                  </span>
+                <ListGroupItem className="ps-0 border-0 contact_li">
+                  <img src={MapPinIcon} alt="" />
                   <p>123 Mitchell Street, Brunswick VIC 3056</p>
                 </ListGroupItem>
-                <ListGroupItem className="ps-0 border-0">
-                  <span>
-                    <i className="ri-phone-line"></i>
-                  </span>
+                <ListGroupItem className="ps-0 border-0 contact_li">
+                  <img src={PhoneIcon} alt="" />
                   <p>+61 4223 07796</p>
                 </ListGroupItem>
-                <ListGroupItem className="ps-0 border-0">
-                  <span>
-                    <i className="ri-mail-line"></i>
-                  </span>
+                <ListGroupItem className="ps-0 border-0 contact_li">
+                  <img src={MailIcon} alt="" />
                   <p>gaurabgurung181@gmail.com</p>
                 </ListGroupItem>
               </ListGroup>

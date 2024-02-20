@@ -1,7 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assests/crown.svg";
 import { ReactComponent as MenuBar } from "../../assests/menu-line.svg";
+import { ReactComponent as MailIcon } from "../../assests/mail-line.svg";
 
 export const NavigationContainer = styled.div`
   postion: relative;
@@ -45,7 +46,6 @@ export const NavLinks = styled.div`
     margin-right: 0px;
   }
 `;
-
 export const NavLink = styled(Link)`
   padding: 5px 25px;
   cursor: pointer;
@@ -60,6 +60,8 @@ export const NavLink = styled(Link)`
   @media screen and (max-width: 1040px) {
     font-size: 1rem;
   }
+  font-weight: ${({ isactive }) => (isactive ? " 800" : "")};
+  color: ${({ isactive }) => (isactive ? " rgba(240, 105, 180, 1)" : "")};
 `;
 export const Logo = styled(CrwnLogo)`
   width: 60px;
@@ -160,8 +162,8 @@ export const SideMenu = styled.div`
   height: 100%;
   background: #fff;
   top: 0;
-  right: -280px;
   right: 0;
+  right: -350px;
   z-index: 20;
   display: flex;
   flex-direction: column;
@@ -179,6 +181,8 @@ export const SideMenu = styled.div`
       margin-top: 30px;
     }
   }
+  right: ${({ isactive }) => (isactive ? "0" : "-350px")};
+  transition: right 0.5s ease-in-out;
 `;
 export const MobileMenuContainer = styled.div``;
 
@@ -186,11 +190,13 @@ export const Overlay = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(255, 192, 203, 0.5);
-  background: rgba(255, 255, 255, 0.7);
-
+  background: rgba(128, 128, 128, 0.5);
   z-index: 10;
   top: 0;
   left: 0;
-  transition: 5s;
+  transition: background 0.5s ease-in-out;
+`;
+
+export const SideMenuActive = styled.div`
+  right: 0;
 `;

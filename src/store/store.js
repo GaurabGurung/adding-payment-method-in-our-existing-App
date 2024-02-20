@@ -1,42 +1,47 @@
-import { compose, createStore, applyMiddleware} from 'redux';
-import logger from 'redux-logger'; 
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'
-import createSagaMiddleware from 'redux-saga';
-import {rootSaga} from './root-saga';
+import { compose, createStore, applyMiddleware } from "redux";
+import logger from "redux-logger";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import createSagaMiddleware from "redux-saga";
+import { rootSaga } from "./root-saga";
 
-import { rootReducer } from './root-reducer';
+import { rootReducer } from "./root-reducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const persistConfig = {
-  key: 'root', // It says that we want to persist everything from the root level
+  key: "root", // It says that we want to persist everything from the root level
   storage, // It helps to store in the local web storage
   // blacklist : ['user']  //it helps us to blacklist whatever we dont want to persist, So userReducer has a AuthListener which migh conflict with the redux-persist, so we will black list it.
-  whitelist: ['cart']
-}
+  whitelist: ["cart"],
+};
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 /**
  This line creates a new reducer by using persistReducer from Redux-Persist. 
  It takes two arguments: persistConfig (configuration for state persistence) and rootReducer (the combined reducer for your application's state). 
  This line creates a new reducer that has built-in state persistence functionality.
  */
 
-const middleWares = [process.env.NODE_ENV !== 'production' && logger, sagaMiddleware ].filter(
-  Boolean
-);
+const middleWares = [
+  process.env.NODE_ENV === "production" && logger,
+  sagaMiddleware,
+].filter(Boolean);
 //production or development
 
-const composeEnhancer = 
-  (process.env.NODE_ENV !== 'production' && 
+const composeEnhancer =
+  (process.env.NODE_ENV !== "production" &&
     window &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
 const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 
-export const store = createStore(persistedReducer, undefined, composedEnhancers); 
+export const store = createStore(
+  persistedReducer,
+  undefined,
+  composedEnhancers
+);
 
 sagaMiddleware.run(rootSaga); //it should run only after the store has been instanciated with the actual sagaMiddleware inside
 
@@ -52,7 +57,7 @@ we use undefined to add any additional default states here, which makes it easie
 We are using undefined because its an optional second parameter.
  */
 
-export const persistor = persistStore (store);
+export const persistor = persistStore(store);
 
 /**
 This line creates a persistor using Redux-Persist's persistStore function. 
