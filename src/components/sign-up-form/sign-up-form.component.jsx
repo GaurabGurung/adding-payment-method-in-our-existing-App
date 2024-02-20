@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 
 import {
@@ -9,10 +8,7 @@ import {
   RegisterButton,
   SignInButton,
 } from "./sign-up-form.styles";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
+
 import { signUpStart } from "../../store/user/user.action";
 import { useNavigate } from "react-router-dom";
 
@@ -35,6 +31,10 @@ const SignUpForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

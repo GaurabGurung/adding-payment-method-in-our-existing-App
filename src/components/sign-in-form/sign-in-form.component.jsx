@@ -1,5 +1,5 @@
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import {
   SignInContainer,
@@ -34,6 +34,10 @@ const SignInForm = () => {
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

@@ -12,6 +12,7 @@ const Shop = () => {
 
   useEffect(() => {
     dispatch(fetchCategoriesStart());
+    window.scroll(0, 0);
   }, []);
 
   return (

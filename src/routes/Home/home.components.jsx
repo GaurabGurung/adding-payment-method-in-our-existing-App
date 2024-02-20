@@ -4,8 +4,12 @@ import "../Home/home.styles.scss";
 import { Outlet } from "react-router-dom";
 
 import Slider from "../../components/slider/slider.component";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div>
       <Outlet />

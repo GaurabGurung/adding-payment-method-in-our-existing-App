@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Footer.scss";
 import MailIcon from "../../assests/mail-line.png";
 import PhoneIcon from "../../assests/phone-line.png";
@@ -9,6 +9,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <section className="footer">
@@ -54,14 +58,14 @@ const Footer = () => {
             <div className="footer__quick-links">
               <h4 className="footer__title"> Useful Links</h4>
               <ListGroup>
+                <ListGroupItem className="ps-0 border-0">
+                  <Link to="/">Home</Link>
+                </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0 ">
                   <Link to="/shop">Shop</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="/cart">Cart</Link>
-                </ListGroupItem>
-                <ListGroupItem className="ps-0 border-0">
-                  <Link to="/login">Login</Link>
+                  <Link to="/checkout">Cart</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
                   <Link to="#">Privacy Policy</Link>
