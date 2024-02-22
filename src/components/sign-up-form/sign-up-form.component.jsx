@@ -99,12 +99,10 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
         <SignInButton type="submit">Sign up</SignInButton>
-        <p>
-          Already have an account?
-          <RegisterButton onClick={signInHandle} type="button">
-            Sign In here
-          </RegisterButton>
-        </p>
+        <p className="text-center mt-3">Already have an account? </p>
+        <RegisterButton onClick={signInHandle} type="button">
+          Sign In here
+        </RegisterButton>
       </form>
     </SignUpContainer>
   );

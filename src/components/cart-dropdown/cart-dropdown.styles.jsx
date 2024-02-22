@@ -7,8 +7,8 @@ import styled from "styled-components";
 
 export const CartDropDown = styled.div`
   position: absolute;
-  width: 260px;
-  height: 340px;
+  // width: 260px;
+  // height: 340px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -27,12 +27,13 @@ export const CartDropDown = styled.div`
 
 export const EmptyMessage = styled.span`
   font-size: 18px;
-  margin: 50px auto;
+  margin: auto;
 `;
 
 export const CartItemsContainer = styled.div`
   height: 240px;
+  width: auto;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: auto;
 `;
