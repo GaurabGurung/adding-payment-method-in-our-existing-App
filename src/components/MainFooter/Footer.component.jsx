@@ -37,19 +37,19 @@ const Footer = () => {
               <h4 className="footer__title"> Categories</h4>
               <ListGroup>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to={"/shop"}>Mens</Link>
+                  <Link to={"/shop/mens"}>Mens</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to={"/shop"}>Womens</Link>
+                  <Link to={"/shop/womens"}>Womens</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to={"/shop"}>Jackets</Link>
+                  <Link to={"/shop/jackets"}>Jackets</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to={"/shop"}>Sneakers</Link>
+                  <Link to={"/shop/sneakers"}>Sneakers</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to={"/shop"}>Hats</Link>
+                  <Link to={"/shop/hats"}>Hats</Link>
                 </ListGroupItem>
               </ListGroup>
             </div>

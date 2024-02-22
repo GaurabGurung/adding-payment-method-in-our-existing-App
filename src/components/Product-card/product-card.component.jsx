@@ -4,6 +4,7 @@ import {
   Footer,
   Name,
   Price,
+  Preview,
 } from "./product-card.styles.jsx";
 import { addItemToCart } from "../../store/cart/cart.action";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +19,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <ProductCartContainer>
-      <div>
+      <Preview>
         <img src={imageUrl} alt={`${name}`} />
         <Button
           buttonType={BUTTON_TYPE_CLASSES.inverted}
@@ -26,7 +27,7 @@ const ProductCard = ({ product }) => {
         >
           Add to Cart
         </Button>
-      </div>
+      </Preview>
       <Footer>
         <Name> {name} </Name>
         <Price> {price} </Price>

@@ -92,6 +92,8 @@ export const TitleStyle = styled.h1`
   -webkit-background-clip: text;
   color: transparent;
   white-space: nowrap;
+  font-weight: 300;
+  font-family: cursive;
   span {
     font-size: 5rem;
   }
@@ -123,7 +125,7 @@ export const TitleStyle = styled.h1`
 
 export const LetterF = styled.span`
   fontsize: "5.5rem";
-  fontweight: "600";
+  fontweight: "900";
   color: "#d4af37";
 `;
 

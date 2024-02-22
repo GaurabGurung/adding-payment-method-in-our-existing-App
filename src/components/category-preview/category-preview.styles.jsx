@@ -14,7 +14,8 @@ export const TitleLink = styled(Link)`
   text-decoration: none;
   color: black;
   padding: 10px;
-
+  font-size: 1.8rem;
+  margin-top: 10px;
   transition: color 0.3s, box-shadow 0.3s;
   &:hover {
     box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
@@ -27,7 +28,7 @@ export const Preview = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   column-gap: 40px;
   row-gap: 70px;
-  margin-top: 30px;
+  margin-bottom: 30px;
 
   @media screen and (max-width: 484px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));

@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
 
 export const ProductCartContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
 
   position: relative;
   margin-top: 30px;
+
+  padding: 0 20px;
   div {
     img {
       width: 100%;
@@ -53,4 +54,15 @@ export const Name = styled.span`
 
 export const Price = styled.span`
   width: 10%;
+`;
+export const Preview = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  column-gap: 40px;
+  row-gap: 70px;
+  margin-top: 30px;
+
+  @media screen and (max-width: 484px) {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+  }
 `;

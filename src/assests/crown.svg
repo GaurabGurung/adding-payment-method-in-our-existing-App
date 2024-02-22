@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="50px" height="39px" viewBox="0 0 50 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>Group</title>
-    <desc>Created with Sketch.</desc>
-    <g id="WiP" stroke="392e00" stroke-width="1" fill="#d4af37" fill-rule="evenodd">
-        <g id="Artboard" transform="translate(-90.000000, -38.000000)">
-            <g id="Group" transform="translate(90.000000, 38.000000)">
-                <polygon id="Rectangle" fill="7a6400" points="3 14 25 26.5 47 14 40.855176 39 9.08421785 39"></polygon>
-                <polygon id="Triangle" fill-opacity="0.262838724" fill="#101A1A" points="25 8 40 39 10 39"></polygon>
-                <circle id="Oval" fill="#7a6400" cx="2" cy="9" r="2"></circle>
-                <circle id="Oval" fill="#d4af37" cx="25" cy="2" r="2"></circle>
-                <circle id="Oval" fill="#d4af37" cx="48" cy="9" r="2"></circle>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="48px" height="48px"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M30,43h-21c-2.209,0 -4,-1.791 -4,-4v-21c0,-2.209 1.791,-4 4,-4h21c2.209,0 4,1.791 4,4v21c0,2.209 -1.791,4 -4,4zM28,34v-11c0,-1.657 -1.343,-3 -3,-3h-11c-1.657,0 -3,1.343 -3,3v11c0,1.657 1.343,3 3,3h11c1.657,0 3,-1.343 3,-3z" fill="#008080"></path><path d="M34,27v8h-6.18c0.12,-0.31 0.18,-0.65 0.18,-1v-7z" fill="#000000" opacity="0.07"></path><path d="M34,27.5v7h-6.05c0.04,-0.16 0.05,-0.33 0.05,-0.5v-6.5z" fill="#000000" opacity="0.07"></path><path d="M39,5h-21c-2.21,0 -4,1.79 -4,4v5h6c0,-1.66 1.34,-3 3,-3h11c1.66,0 3,1.34 3,3v11c0,1.66 -1.34,3 -3,3h-11c-1.66,0 -3,-1.34 -3,-3v-5h-6v10c0,2.21 1.79,4 4,4h21c2.21,0 4,-1.79 4,-4v-21c0,-2.21 -1.79,-4 -4,-4z" fill="#ffc0cb"></path><path d="M20.18,13c-0.12,0.31 -0.18,0.65 -0.18,1h-6.02v-1z" fill="#000000" opacity="0.05"></path><path d="M20.05,13.5c-0.04,0.16 -0.05,0.33 -0.05,0.5h-6.02v-0.5z" fill="#000000" opacity="0.07"></path><rect x="-19.999" y="-21" transform="rotate(-180)" width="6.019" height="1" fill="#000000" opacity="0.05"></rect><rect x="-19.999" y="-20.5" transform="rotate(-180)" width="6.019" height="0.5" fill="#000000" opacity="0.07"></rect></g></g></svg>
