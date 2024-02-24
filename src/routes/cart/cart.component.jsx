@@ -1,4 +1,4 @@
-import "./check-out.styles.scss";
+import "./cart.styles.scss";
 import {
   selectCartItems,
   selectCartTotal,
@@ -9,12 +9,11 @@ import Button, {
 } from "../../components/button/button.component";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import { useSelector } from "react-redux";
-import PaymentForm from "../../components/payment-form/payment-form.component";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import emptyCart from "../../assests/empty_cart.jpg";
 
-const CheckOut = () => {
+const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
 
@@ -58,11 +57,37 @@ const CheckOut = () => {
             <CheckoutItem key={cartItem.id} cartItem={cartItem} />
           ))}
           <span className="total"> Total : ${cartTotal} </span>
-          <PaymentForm />
+
+          <div className="cart_total_container">
+            <h2 className="title">CART TOTAL</h2>
+            <div className="cart__sub">
+              <h5>SUBTOTAL</h5>
+              <h4>$ {cartTotal}</h4>
+            </div>
+            <div className="cart__sub">
+              <h5>SHIPPING</h5>
+              <h4>$ 20</h4>
+            </div>
+            <div className="cart__sub">
+              <h5>TOTAL</h5>
+              <h4>{`$ ${cartTotal + 20} `}</h4>
+            </div>
+            <div className="btn__container">
+              <Button
+                type="button"
+                buttonType={BUTTON_TYPE_CLASSES.base}
+                className="btn"
+              >
+                <Link to="\check-out" className="btn_text">
+                  Proceed to Checkout
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
       )}
     </>
   );
 };
 
-export default CheckOut;
+export default Cart;

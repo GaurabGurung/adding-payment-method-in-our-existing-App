@@ -115,11 +115,13 @@ const Navigation = () => {
                     <NavLinkWithStyle to="/shop">SHOP</NavLinkWithStyle>
                   </li>
                   <li>
-                    <NavLinkWithStyle to="/checkout">CART</NavLinkWithStyle>
+                    <NavLinkWithStyle to="/cart">CART</NavLinkWithStyle>
                   </li>
                   <li>
                     {currentUser ? (
-                      <NavLinkWithStyle to="/">SIGN OUT</NavLinkWithStyle>
+                      <NavLink to="/" onClick={signOutUser}>
+                        SIGN OUT
+                      </NavLink>
                     ) : (
                       <NavLinkWithStyle to="/auth">SIGN IN</NavLinkWithStyle>
                     )}

@@ -65,7 +65,7 @@ const Footer = () => {
                   <Link to="/shop">Shop</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to="/checkout">Cart</Link>
+                  <Link to="/cart">Cart</Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0">
                   <Link to="#">Privacy Policy</Link>

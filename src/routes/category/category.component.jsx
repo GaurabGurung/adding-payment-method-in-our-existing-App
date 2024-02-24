@@ -12,7 +12,7 @@ import {
 } from "../../store/categories/category.selector";
 
 const Category = () => {
-  const { category } = useParams(); //useParams : Returns an object of key/value pairs of the dynamic params from the current URL that were matched by the route path.
+  const { category, id } = useParams(); //useParams : Returns an object of key/value pairs of the dynamic params from the current URL that were matched by the route path.
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
