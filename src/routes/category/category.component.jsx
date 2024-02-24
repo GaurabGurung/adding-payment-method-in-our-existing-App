@@ -1,7 +1,7 @@
 //Full category listing of the products
 
 import "./category.styles.scss";
-import { useParams } from "react-router-dom"; // gives back the value as an object
+import { Route, Routes, useParams } from "react-router-dom"; // gives back the value as an object
 import { Fragment, useEffect, useState } from "react";
 import Spinner from "../../components/spinner/spinner.component";
 import ProductCard from "../../components/Product-card/product-card.component";
@@ -10,6 +10,7 @@ import {
   selectCategoriesMap,
   selectCategoriesIsLoading,
 } from "../../store/categories/category.selector";
+import ProductDetail from "../../components/product-detail/product-detail.component";
 
 const Category = () => {
   const { category, id } = useParams(); //useParams : Returns an object of key/value pairs of the dynamic params from the current URL that were matched by the route path.
@@ -34,6 +35,9 @@ const Category = () => {
             ))}
         </div>
       )}
+      <Routes>
+        <Route path="product/:id" element={<ProductDetail />} />
+      </Routes>
     </Fragment>
   );
 };

@@ -9,21 +9,19 @@ import {
 import { addItemToCart } from "../../store/cart/cart.action";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector";
-import { Link, useNavigate } from "react-router-dom";
-import ProductDetail from "../product-detail/product-detail.component.jsx";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, title, id }) => {
-  const { name, imageUrl, price } = product;
+const ProductCard = ({ product }) => {
+  const { name, imageUrl, price, id } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
-  const navigate = useNavigate();
 
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   return (
     <ProductCartContainer>
       <Preview>
-        <Link to={`/${title}/product/${id}`}>
+        <Link to={`product/${id}`}>
           <img src={imageUrl} alt={`${name}`} product={product} />
         </Link>
         <Button
