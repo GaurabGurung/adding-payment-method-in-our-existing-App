@@ -79,13 +79,13 @@
       justify-content: center;
       .btn {
         padding: 30px 20px;
+        &:hover {
+          background: #656161;
+        }
         .btn_text {
           text-decoration: none;
           color: #fff;
           padding: 50px 10px;
-          &:hover {
-            color: #000;
-          }
         }
       }
     }

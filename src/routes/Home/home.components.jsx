@@ -5,11 +5,16 @@ import { Outlet } from "react-router-dom";
 
 import Slider from "../../components/slider/slider.component";
 import { useEffect } from "react";
+import { addCollectionAndDocuments } from "../../utils/firebase/firebase.utils";
+import SHOP_DATA from "../../shop-data";
 
 const Home = () => {
   useEffect(() => {
     window.scroll(0, 0);
+
+    // addCollectionAndDocuments("categories", SHOP_DATA);
   }, []);
+
   return (
     <div>
       <Outlet />

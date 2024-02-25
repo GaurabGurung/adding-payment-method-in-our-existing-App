@@ -35,6 +35,9 @@
     display: flex;
     .arrow {
       cursor: pointer;
+      &:hover {
+        color: goldenrod;
+      }
     }
     .value {
       margin: 0 10px;
@@ -45,5 +48,8 @@
     cursor: pointer;
     align-items: center;
     width: auto;
+    &:hover {
+      color: red;
+    }
   }
 }

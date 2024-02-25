@@ -31,6 +31,6 @@ export const Preview = styled.div`
   margin-bottom: 30px;
 
   @media screen and (max-width: 484px) {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   }
 `;

@@ -9,10 +9,11 @@ import { useParams } from "react-router-dom";
 import Spinner from "../spinner/spinner.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import ProductCard from "../Product-card/product-card.component";
-import Category from "../../routes/category/category.component";
 
 const ProductDetail = () => {
   const { id, category } = useParams();
+  console.log("heeyy");
+
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
 
@@ -24,9 +25,13 @@ const ProductDetail = () => {
 
   const relatedProducts = Object.entries(categoriesMap)
     .filter(([title]) => title === category)
-    .flatMap(([title, products]) => products);
-  // .flat()
-  // .find((product) => product.id !== parseInt(id));
+    .flatMap(([title, products]) => products)
+    .flat()
+    .filter((product) => product.id !== parseInt(id));
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [id]);
 
   return (
     <>
@@ -49,18 +54,23 @@ const ProductDetail = () => {
                   illum accusantium eius mollitia eligendi, ex iste doloribus
                   magnam.
                 </p>
-                <div>
-                  <Button buttonType={BUTTON_TYPE_CLASSES.google}>
+                <div className="btn__container">
+                  <Button
+                    buttonType={BUTTON_TYPE_CLASSES.google}
+                    className="cart__btn"
+                  >
                     Add To Cart
                   </Button>
                 </div>
               </div>
             </section>
-            <section>
+            <section className="related__product__container">
               <h2>You may also like</h2>
-              {relatedProducts.map((product) => (
-                <Category product={product} key={product.id} />
-              ))}
+              <div className="related_productCard">
+                {relatedProducts.map((product) => (
+                  <ProductCard product={product} key={product.id} />
+                ))}
+              </div>
             </section>
           </>
         )

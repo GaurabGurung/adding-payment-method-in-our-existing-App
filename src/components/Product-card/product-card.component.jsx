@@ -9,10 +9,12 @@ import {
 import { addItemToCart } from "../../store/cart/cart.action";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector";
-import { Link } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, title }) => {
   const { name, imageUrl, price, id } = product;
+  const { category } = useParams();
+  console.log(category, id);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
@@ -21,9 +23,10 @@ const ProductCard = ({ product }) => {
   return (
     <ProductCartContainer>
       <Preview>
-        <Link to={`product/${id}`}>
+        <NavLink to={`/shop/${category || title}/product/${id}`}>
           <img src={imageUrl} alt={`${name}`} product={product} />
-        </Link>
+        </NavLink>
+
         <Button
           buttonType={BUTTON_TYPE_CLASSES.inverted}
           onClick={addProductToCart}
@@ -33,7 +36,7 @@ const ProductCard = ({ product }) => {
       </Preview>
       <Footer>
         <Name> {name} </Name>
-        <Price> {price} </Price>
+        <Price>${price} </Price>
       </Footer>
     </ProductCartContainer>
   );
