@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../product-detail/product-detail.styles.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
@@ -9,10 +9,16 @@ import { useParams } from "react-router-dom";
 import Spinner from "../spinner/spinner.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import ProductCard from "../Product-card/product-card.component";
+import { ReactComponent as EmptyHeart } from "../../assests/heart-line.svg";
+import { ReactComponent as FillHeart } from "../../assests/heart-fill.svg";
+import { selectFavouriteItems } from "../../store/favourites/favourties.selector";
+import { addToFavourites } from "../../store/favourites/favourities.action";
 
 const ProductDetail = () => {
+  const [isFav, setIsFav] = useState(false);
   const { id, category } = useParams();
-  console.log("heeyy");
+
+  const dispatch = useDispatch();
 
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
@@ -29,6 +35,22 @@ const ProductDetail = () => {
     .flat()
     .filter((product) => product.id !== parseInt(id));
 
+  const favItems = useSelector(selectFavouriteItems);
+  console.log(favItems);
+
+  const handleFavClick = () => {
+    // Check if the product is already in favItems
+    const isProductInFav = favItems.some(
+      (favItem) => favItem.id === product.id
+    );
+
+    // Toggle isFav based on the existence of the product in favItems
+    setIsFav(!isProductInFav);
+
+    // Dispatch the addToFavourites action when the heart icon is clicked
+    const action = addToFavourites(favItems, product);
+    dispatch(action);
+  };
   useEffect(() => {
     window.scroll(0, 0);
   }, [id]);
@@ -49,10 +71,10 @@ const ProductDetail = () => {
                 <h2>{product.name}</h2>
                 <h4>${product.price}</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Nulla non magni facili blanditiis molestias soluta eveniet
-                  illum accusantium eius mollitia eligendi, ex iste doloribus
-                  magnam.
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Aliquid officiis impedit quos illo pariatur cumque vero autem
+                  quo velit quas voluptates, neque eaque praesentium totam amet
+                  deserunt illum error ut!
                 </p>
                 <div className="btn__container">
                   <Button
@@ -61,6 +83,15 @@ const ProductDetail = () => {
                   >
                     Add To Cart
                   </Button>
+
+                  {isFav ? (
+                    <FillHeart className="heartIcon" onClick={handleFavClick} />
+                  ) : (
+                    <EmptyHeart
+                      className="heartIcon"
+                      onClick={handleFavClick}
+                    />
+                  )}
                 </div>
               </div>
             </section>

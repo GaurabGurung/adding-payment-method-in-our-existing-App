@@ -14,7 +14,7 @@ import { NavLink, useParams } from "react-router-dom";
 const ProductCard = ({ product, title }) => {
   const { name, imageUrl, price, id } = product;
   const { category } = useParams();
-  console.log(category, id);
+
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 

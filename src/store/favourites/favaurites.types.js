@@ -1,0 +1,3 @@
+export const FAVOURITES_ACTION_TYPES = {
+  SET_FAVOURITES_ITEM: "favourite/SET_FAVOURITES_ITEM",
+};

@@ -29,7 +29,6 @@ export const Preview = styled.div`
   column-gap: 40px;
   row-gap: 70px;
   margin-bottom: 30px;
-
   @media screen and (max-width: 484px) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   }

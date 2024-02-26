@@ -180,13 +180,7 @@ const SHOP_DATA = [
           "https://images.unsplash.com/photo-1616715623022-65d18f0042ae?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: 120,
       },
-      {
-        id: 45,
-        name: "Green Check Jacket",
-        imageUrl:
-          "https://images.unsplash.com/photo-1615112972690-fa2aa806fa6f?q=80&w=2189&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: 120,
-      },
+
       {
         id: 46,
         name: "Bright Red Jacket",
