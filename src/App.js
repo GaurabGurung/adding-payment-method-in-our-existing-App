@@ -12,6 +12,7 @@ import SignInForm from "./components/sign-in-form/sign-in-form.component";
 import Footer from "./components/MainFooter/Footer.component";
 import Cart from "./routes/cart/cart.component";
 import ProductDetail from "./components/product-detail/product-detail.component";
+import Favourites from "./routes/favourites/favourites.component";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/signup" element={<SignUpForm />} />
             <Route path="/signin" element={<SignInForm />} />
+            <Route path="/favourites" element={<Favourites />} />
           </Route>
         </Routes>
       </div>

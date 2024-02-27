@@ -97,7 +97,9 @@ const Navigation = () => {
             )}
           </AuthContainer>
           <IconContainer>
-            <FavIcon />
+            <Link to="/favourites">
+              <FavIcon />
+            </Link>
             <CartIcon />
           </IconContainer>
           <MenuBarContainer>

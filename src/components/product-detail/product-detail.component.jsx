@@ -14,12 +14,17 @@ import { ReactComponent as FillHeart } from "../../assests/heart-fill.svg";
 import { selectFavouriteItems } from "../../store/favourites/favourties.selector";
 import { addToFavourites } from "../../store/favourites/favourities.action";
 import { toast } from "react-toastify";
+import { addItemToCart } from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
 
 const ProductDetail = () => {
   const [isFav, setIsFav] = useState(false);
   const { id, category } = useParams();
 
   const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+
+  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
@@ -78,6 +83,7 @@ const ProductDetail = () => {
                   <Button
                     buttonType={BUTTON_TYPE_CLASSES.google}
                     className="cart__btn"
+                    onClick={addProductToCart}
                   >
                     Add To Cart
                   </Button>

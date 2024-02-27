@@ -7,7 +7,7 @@ import { selectFavouriteCount } from "../../store/favourites/favourties.selector
 const FavIcon = () => {
   const favCount = useSelector(selectFavouriteCount);
   return (
-    <div className="favourites_container">
+    <div className="favIcon_container">
       <Favourites className="favIcon" />
       <span>{favCount}</span>
     </div>

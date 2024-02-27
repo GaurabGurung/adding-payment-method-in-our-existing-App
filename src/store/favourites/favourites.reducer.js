@@ -13,6 +13,7 @@ export const favourtiesReducer = (state = INITIAL_STATE, action = {}) => {
       return {
         ...state,
         favouriteItems: payload,
+        favCount: payload.length,
       };
     default:
       return state;
