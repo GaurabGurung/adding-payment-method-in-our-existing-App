@@ -13,6 +13,7 @@ import { ReactComponent as EmptyHeart } from "../../assests/heart-line.svg";
 import { ReactComponent as FillHeart } from "../../assests/heart-fill.svg";
 import { selectFavouriteItems } from "../../store/favourites/favourties.selector";
 import { addToFavourites } from "../../store/favourites/favourities.action";
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
   const [isFav, setIsFav] = useState(false);
@@ -39,21 +40,18 @@ const ProductDetail = () => {
   console.log(favItems);
 
   const handleFavClick = () => {
-    // Check if the product is already in favItems
-    const isProductInFav = favItems.some(
-      (favItem) => favItem.id === product.id
-    );
-
-    // Toggle isFav based on the existence of the product in favItems
-    setIsFav(!isProductInFav);
-
-    // Dispatch the addToFavourites action when the heart icon is clicked
     const action = addToFavourites(favItems, product);
     dispatch(action);
   };
   useEffect(() => {
     window.scroll(0, 0);
-  }, [id]);
+    if (favItems.some((item) => item.id === parseInt(id))) {
+      console.log(id);
+      setIsFav(true);
+    } else {
+      setIsFav(false);
+    }
+  }, [id, favItems]);
 
   return (
     <>

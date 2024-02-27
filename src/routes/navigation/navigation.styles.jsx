@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assests/crown.svg";
 import { ReactComponent as MenuBar } from "../../assests/menu-line.svg";
-import { ReactComponent as MailIcon } from "../../assests/mail-line.svg";
 
 export const NavigationContainer = styled.div`
-  postion: relative;
+  position: relative;
   width: 100%;
   display: flex;
   margin-bottom: 55px;
@@ -27,9 +26,10 @@ export const LogoContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 45px;
-  @media screen and (max-width: 820px) {
+  @media screen and (max-width: 1010px) {
     padding-left: 15px;
     gap: 15px;
+    width: auto;
   }
 `;
 
@@ -40,10 +40,9 @@ export const NavLinks = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding: 0 35px;
-  margin-right: 0px;
-  @media screen and (max-width: 820px) {
+  margin-left: auto;
+  @media screen and (max-width: 1010px) {
     padding: 2px;
-    margin-right: 0px;
   }
 `;
 export const NavLink = styled(Link)`
@@ -57,7 +56,7 @@ export const NavLink = styled(Link)`
   &:hover {
     box-shadow: 0 0 25px #a38500;
   }
-  @media screen and (max-width: 1040px) {
+  @media screen and (max-width: 1058px) {
     font-size: 1rem;
   }
   font-weight: ${({ isactive }) => (isactive ? " 800" : "")};
@@ -82,7 +81,7 @@ export const Logo = styled(CrwnLogo)`
 `;
 export const AuthContainer = styled.div`
   margin-right: 10px;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 880px) {
     display: none;
   }
 `;
@@ -98,7 +97,7 @@ export const TitleStyle = styled.h1`
     font-size: 5rem;
   }
 
-  @media screen and (max-width: 1040px) {
+  @media screen and (max-width: 1058px) {
     font-size: 2rem;
     span {
       font-size: 3rem;
@@ -136,12 +135,13 @@ export const LetterE = styled.span`
 export const MenuBarLine = styled(MenuBar)`
   width: 50px;
   height: 50px;
-  margin-right: 20px;
+  // margin-right: 20px;
+  margin-right: auto;
   display: none;
   &:hover {
     cursor: pointer;
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 880px) {
     display: block;
     width: 30px;
     height: 30px;
@@ -201,4 +201,10 @@ export const Overlay = styled.div`
 
 export const SideMenuActive = styled.div`
   right: 0;
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

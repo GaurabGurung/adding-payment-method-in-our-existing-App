@@ -1,6 +1,7 @@
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import FavIcon from "../../components/fav-icon/favIcon.component";
 import {
   NavigationContainer,
   NavLink,
@@ -16,6 +17,7 @@ import {
   SideMenu,
   MobileMenuContainer,
   Overlay,
+  IconContainer,
 } from "./navigation.styles";
 import { Fragment, useState } from "react";
 
@@ -94,7 +96,10 @@ const Navigation = () => {
               <NavLink to="/auth">SIGN IN</NavLink>
             )}
           </AuthContainer>
-          <CartIcon />
+          <IconContainer>
+            <FavIcon />
+            <CartIcon />
+          </IconContainer>
           <MenuBarContainer>
             {isSideMenuOpen ? <Overlay onClick={handleSideMenu} /> : ""}
 

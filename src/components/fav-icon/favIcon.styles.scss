@@ -1,0 +1,40 @@
+.favourites_container {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  position: relative;
+  @media screen and (max-width: 820px) {
+    width: 40px;
+  }
+
+  .favIcon {
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    font-size: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:click {
+      transform: scale(1.1);
+    }
+    @media screen and (max-width: 820px) {
+      width: auto;
+    }
+  }
+
+  span {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: bold;
+    top: -5px;
+    left: 25px;
+    background: teal;
+    color: white;
+    border-radius: 20px;
+    padding: 2px 5px;
+  }
+}

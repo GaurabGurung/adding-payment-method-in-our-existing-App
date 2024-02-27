@@ -7,9 +7,11 @@ import { BrowserRouter } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { stripePromise } from "./utils/stripe/stripe.utils";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +19,18 @@ root.render(
     <PersistGate persistor={persistor}>
       <BrowserRouter>
         <Elements stripe={stripePromise}>
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
           <App />
         </Elements>
       </BrowserRouter>
