@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import { ReactComponent as bookmarkLine } from "../../assests/bookmark-line.svg";
+import { ReactComponent as bookmarkFill } from "../../assests/bookmark-fill.svg";
 
 export const ProductCartContainer = styled.div`
   display: flex;
@@ -15,7 +17,6 @@ export const ProductCartContainer = styled.div`
       width: 100%;
       height: 100%;
       object-fit: cover;
-      margin-bottom: 20px;
       transition: opacity 0.3s, transform 0.3s;
       @media screen and (max-width: 485px) {
       }
@@ -46,13 +47,14 @@ export const ProductCartContainer = styled.div`
 `;
 export const Footer = styled.div`
   width: 100%;
-  height: 5%;
+  height: auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   font-size: 18px;
-  margin-top: 10px;
   font-weight: 700;
   padding: 0 10px;
+  border: 1px solid #c9c9c9;
 `;
 export const Name = styled.span`
   width: 90%;
@@ -62,7 +64,7 @@ export const Name = styled.span`
 export const Price = styled.span``;
 export const Preview = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   column-gap: 40px;
   row-gap: 70px;
   margin-top: 30px;
@@ -72,4 +74,25 @@ export const Preview = styled.div`
   @media screen and (max-width: 484px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
   }
+`;
+
+export const EmptyFavIcon = styled(bookmarkLine)`
+  width: 30px;
+
+  right: 10px;
+  top: 50px;
+  cursor: pointer;
+`;
+
+export const FillFavIcon = styled(bookmarkFill)`
+  width: 30px;
+
+  right: 10px;
+  top: 50px;
+  cursor: pointer;
+`;
+
+export const ProductNameContainer = styled.div`
+  display: flex;
+  width: 100%;
 `;

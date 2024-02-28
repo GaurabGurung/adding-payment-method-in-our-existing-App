@@ -2,14 +2,17 @@ import {
   CategoryPreviewContainer,
   TitleLink,
   Preview,
+  ButtonSeeMore,
 } from "./category-preview.styles.jsx";
 import ProductCard from "../Product-card/product-card.component.jsx";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component.jsx";
+import { Link } from "react-router-dom";
 
 const CategoryPreview = ({ title, products }) => {
   return (
     <CategoryPreviewContainer>
       <h2 style={{ textAlign: "center" }}>
-        <TitleLink to={title}>{title.toUpperCase()}</TitleLink>
+        <TitleLink>{title.toUpperCase()}</TitleLink>
       </h2>
       <Preview>
         {products
@@ -18,6 +21,8 @@ const CategoryPreview = ({ title, products }) => {
             <ProductCard key={product.id} product={product} title={title} />
           ))}
       </Preview>
+
+      <ButtonSeeMore to={title}>See More</ButtonSeeMore>
     </CategoryPreviewContainer>
   );
 };

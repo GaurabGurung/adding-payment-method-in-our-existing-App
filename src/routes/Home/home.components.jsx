@@ -16,7 +16,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="home_container">
       <Outlet />
       <div className="home__slider">
         <Slider className="slider" />

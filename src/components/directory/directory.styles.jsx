@@ -3,8 +3,13 @@ import { styled } from "styled-components";
 export const DirectoryContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
+  @media screen and (min-width: 1900px) {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 export const DirectoryHeader = styled.h1`

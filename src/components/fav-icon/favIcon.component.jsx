@@ -9,7 +9,8 @@ const FavIcon = () => {
   return (
     <div className="favIcon_container">
       <Favourites className="favIcon" />
-      <span>{favCount}</span>
+
+      {favCount !== 0 && <span>{favCount}</span>}
     </div>
   );
 };

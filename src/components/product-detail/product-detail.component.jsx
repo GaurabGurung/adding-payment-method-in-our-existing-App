@@ -42,14 +42,12 @@ const ProductDetail = () => {
     .filter((product) => product.id !== parseInt(id));
 
   const favItems = useSelector(selectFavouriteItems);
-  console.log(favItems);
 
   const handleFavClick = () => {
     const action = addToFavourites(favItems, product);
     dispatch(action);
   };
   useEffect(() => {
-    window.scroll(0, 0);
     if (favItems.some((item) => item.id === parseInt(id))) {
       console.log(id);
       setIsFav(true);
@@ -57,6 +55,10 @@ const ProductDetail = () => {
       setIsFav(false);
     }
   }, [id, favItems]);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [id]);
 
   return (
     <>

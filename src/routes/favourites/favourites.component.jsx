@@ -26,13 +26,15 @@ const Favourites = () => {
           </Button>
         </div>
       ) : (
-        favItems.map((product) => (
-          <ProductCard
-            product={product}
-            title={product.title}
-            key={product.id}
-          />
-        ))
+        <div className="product__container">
+          {favItems.map((product) => (
+            <ProductCard
+              product={product}
+              title={product.title}
+              key={product.id}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
