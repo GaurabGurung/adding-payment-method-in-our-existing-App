@@ -7,13 +7,17 @@ import {
   ButtonContainer,
   RegisterContainer,
   RegisterButton,
+  GuestButton,
 } from "./sign-in-form.styles.jsx";
 import { useDispatch } from "react-redux";
 import {
   googleSignInStart,
-  emalSignInStart,
+  emailSignInStart,
 } from "../../store/user/user.action";
 import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signInAnonymously } from "firebase/auth";
+import { auth } from "../../utils/firebase/firebase.utils.js";
+import { toast } from "react-toastify";
 
 const defaultFormFields = {
   email: "",
@@ -43,8 +47,9 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      dispatch(emalSignInStart(email, password));
+      dispatch(emailSignInStart(email, password));
       resetFormFields();
+      navigate("/home");
     } catch (error) {
       switch (error.code) {
         case "auth/user-not-found":
@@ -61,6 +66,23 @@ const SignInForm = () => {
     }
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) =>
+      console.log("Authentication state changed:", user)
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, [auth]);
+
+  const handleGuestLogin = async () => {
+    try {
+      await signInAnonymously(auth);
+      toast.success("Guest logged in Successfully");
+    } catch (error) {
+      console.error("Error during guest login:", error);
+    }
+  };
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
@@ -115,6 +137,13 @@ const SignInForm = () => {
         <RegisterButton type="button" onClick={Handleregister}>
           Register
         </RegisterButton>
+      </ButtonContainer>
+
+      <RegisterContainer>Or</RegisterContainer>
+      <ButtonContainer>
+        <GuestButton type="button" onClick={handleGuestLogin}>
+          Guest Login
+        </GuestButton>
       </ButtonContainer>
     </SignInContainer>
   );

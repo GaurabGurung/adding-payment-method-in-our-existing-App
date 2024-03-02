@@ -17,6 +17,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { selectFavouriteItems } from "../../store/favourites/favourties.selector.js";
 import { addToFavourites } from "../../store/favourites/favourities.action.js";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ product, title }) => {
   const [isFav, setIsFav] = useState(false);
@@ -28,11 +29,17 @@ const ProductCard = ({ product, title }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
-  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
+  const addProductToCart = () => (
+    dispatch(addItemToCart(cartItems, product)),
+    toast.success(`${name} added to Cart`)
+  );
 
   const handleFavClick = () => {
     const action = addToFavourites(favItems, product);
     dispatch(action);
+    isFav
+      ? toast.info(`${name} removed from Favourites`)
+      : toast.info(`${name} added to Favourites`);
   };
 
   useEffect(() => {

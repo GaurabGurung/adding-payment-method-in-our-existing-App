@@ -15,7 +15,7 @@ export const ProductCartContainer = styled.div`
   div {
     img {
       width: 100%;
-      height: 100%;
+      height: 437px;
       object-fit: cover;
       transition: opacity 0.3s, transform 0.3s;
       @media screen and (max-width: 485px) {

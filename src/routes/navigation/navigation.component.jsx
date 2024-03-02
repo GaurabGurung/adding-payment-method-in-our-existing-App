@@ -50,17 +50,10 @@ const Navigation = () => {
     </NavLink>
   );
 
-  const SideMenuWithStyle = ({ children }) => (
-    <SideMenu
-      style={{
-        right: isSideMenuOpen === false ? "0" : "",
-      }}
-    ></SideMenu>
-  );
-
   const signOutUser = () => {
     dispatch(signOutStart());
-    setIsSideMenuOpen(!isSideMenuOpen);
+
+    isSideMenuOpen && setIsSideMenuOpen(false);
   };
 
   const handleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);

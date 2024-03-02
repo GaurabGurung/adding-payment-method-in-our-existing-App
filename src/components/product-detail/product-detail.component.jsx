@@ -24,8 +24,6 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
-  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
-
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
 
@@ -46,7 +44,15 @@ const ProductDetail = () => {
   const handleFavClick = () => {
     const action = addToFavourites(favItems, product);
     dispatch(action);
+    isFav
+      ? toast.info(`${product.name} removed from Favourites`)
+      : toast.info(`${product.name} added to Favourites`);
   };
+
+  const addProductToCart = () => (
+    dispatch(addItemToCart(cartItems, product)),
+    toast.success(`${product.name} added to Cart`)
+  );
   useEffect(() => {
     if (favItems.some((item) => item.id === parseInt(id))) {
       console.log(id);

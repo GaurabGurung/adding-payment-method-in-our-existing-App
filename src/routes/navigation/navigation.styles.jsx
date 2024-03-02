@@ -41,7 +41,7 @@ export const NavLinks = styled.div`
   justify-content: flex-end;
   padding: 0 35px;
   margin-left: auto;
-  @media screen and (max-width: 1010px) {
+  @media screen and (max-width: 1040px) {
     padding: 2px;
   }
 `;
@@ -56,7 +56,7 @@ export const NavLink = styled(Link)`
   &:hover {
     box-shadow: 0 0 25px #a38500;
   }
-  @media screen and (max-width: 1058px) {
+  @media screen and (max-width: 1093px) {
     font-size: 1rem;
   }
   font-weight: ${({ isactive }) => (isactive ? " 800" : "")};

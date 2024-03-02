@@ -19,6 +19,7 @@ export const TextStyle = styled.h2`
 `;
 export const ButtonContainer = styled.div`
   display: flex;
+
   justify-content: space-between;
 `;
 export const RegisterContainer = styled.p`
@@ -31,6 +32,19 @@ export const RegisterContainer = styled.p`
   margin-top: 30px;
 `;
 export const RegisterButton = styled(Button)`
+  width: 100% !important;
+  background: #fff;!important;
+  color: black;
+  border: 1px solid black;
+  transition: color 0.3s, box-shadow 0.3s;
+  transition: border 0.1s;
+  &:hover {
+    box-shadow: 0 0 10px #a38500;
+    border: 1px solid white;
+  }
+`;
+
+export const GuestButton = styled(Button)`
   width: 100% !important;
   background: #fff;!important;
   color: black;
