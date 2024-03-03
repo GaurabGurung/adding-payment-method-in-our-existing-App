@@ -44,7 +44,6 @@ const ProductCard = ({ product, title }) => {
 
   useEffect(() => {
     if (favItems.some((item) => item.id === parseInt(id))) {
-      console.log(id);
       setIsFav(true);
     } else {
       setIsFav(false);

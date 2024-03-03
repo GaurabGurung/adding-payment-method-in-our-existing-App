@@ -17,7 +17,7 @@ import {
   collection, // mostly used to create or target a specific collection
   writeBatch, // creates a batch and writes a document using multiple methods to make it successfully
   query, //to find documents with some specification
-  getDocs, // use to fetch multiple documents
+  getDocs,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -107,7 +107,7 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => {
   //    const res = await signOut(auth);
-  signOut(auth);
+  await signOut(auth);
   //     console.log(res)
 };
 

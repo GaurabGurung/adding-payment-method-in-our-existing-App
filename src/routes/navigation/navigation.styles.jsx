@@ -18,6 +18,7 @@ export const NavigationContainer = styled.div`
     margin-top: 10px;
   }
 `;
+
 export const LogoContainer = styled.div`
   height: 100%;
   width: 80%;
@@ -45,6 +46,7 @@ export const NavLinks = styled.div`
     padding: 2px;
   }
 `;
+
 export const NavLink = styled(Link)`
   padding: 5px 25px;
   cursor: pointer;
@@ -62,6 +64,7 @@ export const NavLink = styled(Link)`
   font-weight: ${({ isactive }) => (isactive ? " 800" : "")};
   color: ${({ isactive }) => (isactive ? " rgba(240, 105, 180, 1)" : "")};
 `;
+
 export const Logo = styled(CrwnLogo)`
   width: 60px;
   height: 60px;
@@ -79,12 +82,14 @@ export const Logo = styled(CrwnLogo)`
   @media screen and (max-width: 820px) {
   }
 `;
+
 export const AuthContainer = styled.div`
   margin-right: 10px;
   @media screen and (max-width: 880px) {
     display: none;
   }
 `;
+
 export const TitleStyle = styled.h1`
   font-size: 3rem;
   background: linear-gradient(45deg, #a38500, #ffe678, #a38500);
@@ -186,6 +191,7 @@ export const SideMenu = styled.div`
   right: ${({ isactive }) => (isactive ? "0" : "-350px")};
   transition: right 0.5s ease-in-out;
 `;
+
 export const MobileMenuContainer = styled.div``;
 
 export const Overlay = styled.div`

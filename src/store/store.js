@@ -13,7 +13,7 @@ const persistConfig = {
   key: "root", // It says that we want to persist everything from the root level
   storage, // It helps to store in the local web storage
   // blacklist : ['user']  //it helps us to blacklist whatever we dont want to persist, So userReducer has a AuthListener which migh conflict with the redux-persist, so we will black list it.
-  whitelist: ["cart"],
+  whitelist: ["cart", "favourites"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -38,7 +38,7 @@ const composeEnhancer =
 const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 
 export const store = createStore(
-  persistedReducer,
+  persistedReducer, //It replaced the rootReducer, which was a normal just a normal root reducer
   undefined,
   composedEnhancers
 );

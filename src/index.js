@@ -16,7 +16,7 @@ import { ToastContainer } from "react-toastify";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider loading={null} store={store}>
-    <PersistGate persistor={persistor}>
+    <PersistGate persistor={persistor} loading={null}>
       <BrowserRouter>
         <Elements stripe={stripePromise}>
           <ToastContainer

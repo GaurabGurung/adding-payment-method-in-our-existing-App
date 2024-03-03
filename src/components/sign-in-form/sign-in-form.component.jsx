@@ -9,15 +9,18 @@ import {
   RegisterButton,
   GuestButton,
 } from "./sign-in-form.styles.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   googleSignInStart,
   emailSignInStart,
 } from "../../store/user/user.action";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged, signInAnonymously } from "firebase/auth";
-import { auth } from "../../utils/firebase/firebase.utils.js";
+
 import { toast } from "react-toastify";
+import {
+  selectCurrentUser,
+  selectUserIsLoading,
+} from "../../store/user/user.selector.js";
 
 const defaultFormFields = {
   email: "",
@@ -29,15 +32,23 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  const isLoading = useSelector(selectUserIsLoading);
+  const currentUser = useSelector(selectCurrentUser);
+
   const navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
-
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/shop");
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -49,7 +60,6 @@ const SignInForm = () => {
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
-      navigate("/home");
     } catch (error) {
       switch (error.code) {
         case "auth/user-not-found":
@@ -66,23 +76,16 @@ const SignInForm = () => {
     }
   };
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) =>
-      console.log("Authentication state changed:", user)
-    );
-    return () => {
-      unsubscribe();
-    };
-  }, [auth]);
+  // const handleGuestLogin = async () => {
+  //   console.log(currentUser);
+  //   try {
+  //     // Update this line to dispatch the anonymous sign-in action
 
-  const handleGuestLogin = async () => {
-    try {
-      await signInAnonymously(auth);
-      toast.success("Guest logged in Successfully");
-    } catch (error) {
-      console.error("Error during guest login:", error);
-    }
-  };
+  //     toast.success("Guest logged in Successfully");
+  //   } catch (error) {
+  //     console.error("Error during guest login:", error);
+  //   }
+  // };
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
@@ -138,13 +141,13 @@ const SignInForm = () => {
           Register
         </RegisterButton>
       </ButtonContainer>
-
+      {/* 
       <RegisterContainer>Or</RegisterContainer>
       <ButtonContainer>
         <GuestButton type="button" onClick={handleGuestLogin}>
           Guest Login
         </GuestButton>
-      </ButtonContainer>
+      </ButtonContainer> */}
     </SignInContainer>
   );
 };

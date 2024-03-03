@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import FormInput from "../form-input/form-input.component";
@@ -11,6 +11,7 @@ import {
 
 import { signUpStart } from "../../store/user/user.action";
 import { useNavigate } from "react-router-dom";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const defaultFormFields = {
   displayName: "",
@@ -23,7 +24,7 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const dispatch = useDispatch();
-
+  const currentUser = useSelector(selectCurrentUser);
   const navigate = useNavigate();
 
   const signInHandle = () => navigate("/signin");
@@ -35,6 +36,12 @@ const SignUpForm = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/shop");
+    }
+  }, [currentUser]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
