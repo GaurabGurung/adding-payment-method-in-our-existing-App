@@ -21,6 +21,12 @@ const Cart = () => {
     window.scroll(0, 0);
   }, []);
 
+//payment integration
+
+const makePayment = async () => {
+  const stripe = await loadStripe
+}
+
   return (
     <>
       {cartItems.length === 0 ? (
