@@ -77,10 +77,9 @@ const Cart = () => {
                 type="button"
                 buttonType={BUTTON_TYPE_CLASSES.base}
                 className="btn"
+                onClick={makePayment}
               >
-                <Link to="\check-out" className="btn_text">
-                  Proceed to Checkout
-                </Link>
+                Proceed to Payment
               </Button>
             </div>
           </div>
