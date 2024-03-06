@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import emptyCart from "../../assests/empty_cart.jpg";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
@@ -21,11 +22,36 @@ const Cart = () => {
     window.scroll(0, 0);
   }, []);
 
-//payment integration
+  //payment integration
 
-const makePayment = async () => {
-  const stripe = await loadStripe
-}
+  const makePayment = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51OGMJWKUEZNEGbibtb7gVtMLJoRv7MawWa3kFuSo9TpHfKodgfm4ogOdHbJ5TFbVtc0KKNm938JkffzTEJSlAG9300a43TNZ6P"
+    );
+
+    const body = {
+      products: cartItems,
+    };
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const response = await fetch(
+      "http://localhost:8000/api/create-checkout-session",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }
+    );
+    const session = await response.json();
+
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+    if (result.error) {
+      console.log(result.error);
+    }
+  };
 
   return (
     <>
