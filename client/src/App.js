@@ -14,6 +14,7 @@ import Cart from "./routes/cart/cart.component";
 import Favourites from "./routes/favourites/favourites.component";
 import Cancel from "./routes/cancel/cancel";
 import Success from "./routes/success/success.component";
+import ScrollUp from "./components/scroll-up/scroll-up";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -39,6 +40,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
+      <ScrollUp />
     </>
   );
 };

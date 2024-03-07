@@ -1,0 +1,21 @@
+// scroll-up.scss
+
+.arrow {
+  position: fixed;
+  right: 50px;
+  bottom: -50%;
+
+  background-color: white;
+  z-index: 6;
+  padding: 6px;
+  transition: bottom 0.4s, transform 0.4s, background-color 0.4s;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 12px 24px rgb(45, 43, 43);
+  }
+}
+
+.showScroll {
+  bottom: 50px;
+}
