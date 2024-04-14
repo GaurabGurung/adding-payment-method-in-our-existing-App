@@ -33,7 +33,7 @@
   }
   .quantity {
     display: flex;
-    .arrow {
+    .arrow_handler {
       cursor: pointer;
       &:hover {
         color: goldenrod;
@@ -41,6 +41,7 @@
     }
     .value {
       margin: 0 10px;
+      text-align: center;
     }
   }
   .remove-button {
